@@ -1,0 +1,13 @@
+
+.story-wrapper {
+    position: relative;
+}
+
+.story-details {
+    margin-top: 2px;
+    padding: 2px;
+}
+
+.story-subtext {
+    color: #001021;
+}
