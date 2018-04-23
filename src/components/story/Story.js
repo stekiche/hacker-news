@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Comment from '../comment/Comment';
+import moment from 'moment';
 
+import Comment from '../comment/Comment';
 import './Story.css';
 
 class Story extends Component {
@@ -13,7 +14,7 @@ class Story extends Component {
     render() {
         const entry = this.props.entry;
         if (entry) {
-            const date = new Date(entry.time);
+            const date = moment(new Date(entry.time * 1000)).format('MMM DD, YYYY HH:mm');
             return (
                 <div className="story">
                     <div className="story-wrapper">
@@ -23,7 +24,7 @@ class Story extends Component {
                         <div className="story-details">
                             <p>Submitted by 
                                 <span className="story-subtext"> <i>{entry.by}</i></span> on
-                                <span className="story-subtext"> {date.toString()}</span> &#8729; 
+                                <span className="story-subtext"> {date}</span> &#8729; 
                                 <span className="story-subtext"> {entry.descendants} comments</span>
                             </p>
                         </div>

@@ -1,6 +1,7 @@
 
 .story-wrapper {
     position: relative;
+    overflow-wrap: break-word;
 }
 
 .story-details {

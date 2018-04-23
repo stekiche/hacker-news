@@ -6,10 +6,12 @@
     padding: 8px 4px;
     margin-bottom: 4px;
     width: 100%;
+    overflow-wrap: break-word;
 }
 
 .entry-wrapper:hover {
     cursor: pointer;
+    background-color: #ecf0f3;
 }
 
 .entry-subtext {

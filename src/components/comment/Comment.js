@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 import './Comment.css';
 
 class Comment extends Component {
@@ -31,8 +32,6 @@ class Comment extends Component {
             comment.kids = [];
         }
 
-        let date = new Date(comment.time);
-
         if (!this.state.hidden) {
             return (
                 <div className="comment">
@@ -41,7 +40,7 @@ class Comment extends Component {
                             <div className="">
                                 <p>By
                                     <span className="comment-subtext">{comment.by}</span> on
-                                    <span className="comment-subtext"> {date.toString()}</span>
+                                    <span className="comment-subtext"> {moment(new Date(comment.time * 1000 || 0)).fromNow()}</span>
                                 </p>
                             </div>
                             <span className="comment-actions" onClick={this.toggleVisibility}>hide</span>
@@ -65,7 +64,7 @@ class Comment extends Component {
             <div className="comment-wrapper">
                 <div className="comment-details">
                     <div className="">
-                        <p>By <span className="comment-subtext">{comment.by}</span> on <span className="comment-subtext">{date.toString()}</span></p>
+                        <p>By <span className="comment-subtext">{comment.by}</span> on <span className="comment-subtext">{moment(new Date(comment.time * 1000 || 0)).fromNow()}</span></p>
                     </div>
                     <span className="comment-actions" onClick={this.toggleVisibility}>show</span>
                 </div>
