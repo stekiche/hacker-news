@@ -1,38 +1,139 @@
-* {
+
+*, *::before, *::after {
     box-sizing: border-box;
+    margin: 0;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Quicksand', sans-serif;
-}
-
-h1 {
-    font-size: 20px;
-    font-weight: 500;
-    padding: 0;
-    margin: 0;
+    color: #E8F1F2;
+    background-color: rgba(79, 81, 101, 1);
+    font-family: 'Inconsolata', monospace;
 }
 
 h2 {
-    font-size: 16px;
-    font-weight: 500;
-    padding: 0;
-    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
 }
 
 p {
-    font-size: 12px;
-    padding: 0;
-    margin: 0;
+    font-size: 14px;
 }
 
-a {
+a, a:hover, a:focus {
+    color: rgba(173, 52, 62, 1);
     text-decoration: none;
-    color: #0090C1;
 }
 
-hr {
-    border: .5px solid #eaeef1
+.container {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.navbar, .sidebar {
+    width: 45%;
+    left: 0;
+    background-color: rgba(79, 81, 101, 1);
+    border-right: 2px inset rgba(79, 81, 101, 1);
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    padding-top: 8px;
+    height: 50px;
+    z-index: 20;
+    text-align: center;
+}
+
+.sidebar {
+    position: fixed;
+    overflow: scroll;
+    z-index: 10;
+    padding: 4px;
+    top: 50px;
+    bottom: 0;
+}
+
+.main {
+    position: relative;
+    margin-top: 50px;
+    margin-left: 45%;
+}
+
+.card {
+    padding: 8px;
+    overflow-wrap: break-word;
+    margin: 4px 8px;
+    border-radius: 4px;
+    background-color: rgba(39, 41, 50, 0.5);
+}
+
+.card:hover {
+    cursor: pointer;
+    background-color: rgba(232, 241, 242, 1);
+    color: #000000;
+}
+
+.card-action > a {
+    color: rgba(84, 122, 165, 1);
+}
+
+.action {
+    color: rgba(84, 122, 165, 1);
+}
+
+.action:hover {
+    cursor: pointer;
+}
+
+.tag {
+    color: rgba(79, 81, 101, 0.5);
+}
+
+.helper-text {
+    font-style: italic;
+}
+
+.reader {
+    border-radius: 4px;
+    padding: 4px 10px;
+    margin: 2px 4px;
+    background-color: rgba(232, 241, 242, 1);
+    color: #000000;
+}
+
+.reader-comments {
+    margin-top: 8px;
+}
+
+.comment {
+    margin-top: 4px;
+    padding: 4px;
+    border-left: 1px solid rgba(84, 122, 165, 1);
+    background-color: rgb(209, 223, 224);
+    position: relative;
+}
+
+.comment-header {
+    font-size: 12px;
+}
+
+.comment-replies {
+    margin-left: 32px;
+}
+
+.comment-header .action {
+    position: absolute;
+    right: 16px;
+    top: 4px;
 }

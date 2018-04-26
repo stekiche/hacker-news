@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import Entry from './components/entry/Entry';
-import Story from './components/story/Story';
-import './App.css';
+import Entry from './components/Entry';
+import Story from './components/Story';
 
 class App extends Component {
     
@@ -16,6 +15,7 @@ class App extends Component {
             entries: [],
             selectedStory: null
         }
+        this.displayStory = this.displayStory.bind(this);
     }
 
     getTopStories() {
@@ -48,22 +48,22 @@ class App extends Component {
 
     render() {
 
+        const stories = this.state.entries.map((entry, index) => {
+            return <Entry key={index} entry={entry} clickHandler={this.displayStory}/>
+        });
+
         return (
-            <div className="app-wrapper">
-                <div className="app-sidebar">
-                    <div className="app-header">
+            <div className="container">
+                <div className="sidebar">
+                    <div className="navbar">
                         <h2 className="title">Hacker News Top Stories</h2>
                     </div>
-                    <div className="app-list">
-                        {this.state.entries.map((entry, i) => {
-                            return <Entry key={i} entry={entry} clickHandler={this.displayStory.bind(this)}/>
-                        })}
+                    <div className="column">
+                        {stories}
                     </div>
                 </div>
-                <div className="app-content">
-                    <div className="app-content--view">
-                        <Story entry={this.state.selectedStory} />
-                    </div>
+                <div className="main">
+                    <Story entry={this.state.selectedStory} />
                 </div>
             </div>
         );

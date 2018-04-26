@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './Entry.css';
 
 class Entry extends Component {
     
@@ -7,14 +6,14 @@ class Entry extends Component {
         const entry = this.props.entry;
 
         return (
-            <div className="entry-wrapper" onClick={() => this.props.clickHandler(entry)}>
-                <div className="entry-title">
+            <div className="card column" onClick={() => this.props.clickHandler(entry)}>
+                <div className="header">
                     <h2>{entry.title}</h2>
                 </div>
-                <div className="entry-subtext">
-                    <p>{entry.url}</p>
+                <div className="card-action">
+                    <a href={entry.url} target="_blank">{entry.url}</a>
                 </div>
-                <div className="entry-footer">
+                <div className="footer">
                     <p>By <i>{entry.by}</i> &#8729; {entry.descendants} Comments</p>
                 </div>
             </div>
