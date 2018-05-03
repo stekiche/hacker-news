@@ -2,17 +2,13 @@
 const initialState = {
     topStories: [],
     topStoriesIds: [],
-    selectedStory: null
+    selectedStory: undefined
 };
 
 export default function rootReducer(state=initialState, {type, payload}) {
     switch (type) {
-        case 'TOGGLE_COMMENT':
-            const updatedComment = Object.assign({}, payload);
-            updatedComment.hidden = !payload.hidden;
-            return updatedComment;
         case 'OPEN_STORY':
-        return {...state, selectedStory: payload};
+            return {...state, selectedStory: payload};
         case 'UPDATE_STORIES':
             return {...state, topStories: payload};
         case 'UPDATE_STORY_IDS':
